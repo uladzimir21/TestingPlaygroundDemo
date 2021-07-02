@@ -45,8 +45,6 @@
             <version>7.4.0</version>
             <scope>compile</scope>
         </dependency>
-
-
     </dependencies>
 
     <build>
