@@ -1,0 +1,39 @@
+# Base structure of ignore file #
+# Packages #
+**/target/
+/target/
+*/target/*
+
+**/.idea/
+/.idea/
+*/.idea/*
+
+**/build/
+/build/
+*/build/*
+
+downloads/
+
+**/.allure/
+/.allure/
+*/.allure/*
+
+**/test-results/
+/test-results/
+*/test-results/*
+
+# File extensions #
+*.classpath
+*.project
+*.settings
+*.iml
+*.log
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
