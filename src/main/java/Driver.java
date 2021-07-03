@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Driver implements WebDriver {
     private static final String DRIVER_NAME = "webdriver.chrome.driver";
-    private static final String DRIVER_PATH = "C:\\Utility\\BrowserDrivers\\chromedriver.exe";
+    private static String DRIVER_PATH = "./src/main/resources/drivers/chromedriver";
 
     private static Driver driver;
 
@@ -20,16 +20,26 @@ public class Driver implements WebDriver {
     }
 
     public static Driver getDriver() {
+        setupOSBasedDriverPath();
         System.setProperty(DRIVER_NAME, DRIVER_PATH);
         if (driver == null) {
             driver = new Driver(new ChromeDriver());
-            driver
-                    .webDriver
-                    .manage()
-                    .timeouts()
-                    .implicitlyWait(10, TimeUnit.SECONDS);
+            setupImplicitWait(10);
         }
         return driver;
+    }
+
+    private static void setupOSBasedDriverPath() {
+        if(System.getProperty("os.name").toLowerCase().contains("win"))
+            DRIVER_PATH +=".exe";
+    }
+
+    private static void setupImplicitWait(long l) {
+        driver
+                .webDriver
+                .manage()
+                .timeouts()
+                .implicitlyWait(l, TimeUnit.SECONDS);
     }
 
     public void get(String url) {

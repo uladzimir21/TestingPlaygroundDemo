@@ -20,7 +20,6 @@ public class HiddenLayersPage {
     }
 
     public void clickButton() {
-        System.out.println(buttonSum());
         if (buttonSum() == 1) {
             driver.findElement(greenButton).click();
             buttonColor = "GREEN";
