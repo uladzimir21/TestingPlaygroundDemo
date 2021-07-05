@@ -30,8 +30,8 @@ public class Driver implements WebDriver {
     }
 
     private static void setupOSBasedDriverPath() {
-        if(System.getProperty("os.name").toLowerCase().contains("win"))
-            DRIVER_PATH +=".exe";
+        if (System.getProperty("os.name").toLowerCase().contains("win"))
+            DRIVER_PATH += ".exe";
     }
 
     private static void setupImplicitWait(long l) {
