@@ -1,5 +1,6 @@
 package com.elinext.testingplaygrounddemo.pages;
 
+import com.elinext.testingplaygrounddemo.ILogger;
 import com.elinext.testingplaygrounddemo.driver.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,8 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ClickPage {
-    protected Driver driver;
+public class ClickPage implements ILogger {
+    private final Driver driver;
 
     private final By buttonLocator = By.id("badButton");
 
@@ -27,7 +28,7 @@ public class ClickPage {
     public void clickButton(WebDriverWait wait, WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         element.click();
-        System.out.println(getButtonClass());
+        log().info("The class of clicked button is: " + getButtonClass());
     }
 
     public String getButtonClass() {

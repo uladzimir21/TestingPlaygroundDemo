@@ -1,13 +1,14 @@
 package com.elinext.testingplaygrounddemo.pages;
 
+import com.elinext.testingplaygrounddemo.ILogger;
 import com.elinext.testingplaygrounddemo.driver.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class HiddenLayersPage {
-    protected Driver driver;
+public class HiddenLayersPage implements ILogger {
+    private final Driver driver;
     private String buttonColor;
 
     private final By colorButtons = By.xpath("//div[@id='spa']/div[@class='spa-view']");
@@ -26,11 +27,11 @@ public class HiddenLayersPage {
         if (buttonSum() == 1) {
             driver.findElement(greenButton).click();
             buttonColor = "GREEN";
-            System.out.println("Green Button clicked!");
+            log().info("Green Button clicked!");
         } else {
             driver.findElement(blueButton).click();
             buttonColor = "BLUE";
-            System.out.println("Blue Button clicked!");
+            log().info("Blue Button clicked!");
         }
     }
 
