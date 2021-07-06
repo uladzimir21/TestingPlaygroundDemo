@@ -3,22 +3,32 @@
 <suite name="All Test Suite">
     <test name="Hidden Layers Page Test">
         <classes>
-            <class name="HiddenLayersPageTest"/>
+            <class name="com.elinext.testingplaygrounddemo.pages.HiddenLayersPageTest"/>
         </classes>
     </test>
     <test name="Click Page Test">
         <classes>
-            <class name="ClickPageTest"/>
+            <class name="com.elinext.testingplaygrounddemo.pages.ClickPageTest"/>
         </classes>
     </test>
     <test name="Verify Text Page Test">
         <classes>
-            <class name="VerifyTextPageTest"/>
+            <class name="com.elinext.testingplaygrounddemo.pages.VerifyTextPageTest"/>
         </classes>
     </test>
     <test name="Mouse Over Page Test">
         <classes>
-            <class name="MouseOverPageTest"/>
+            <class name="com.elinext.testingplaygrounddemo.pages.MouseOverPageTest"/>
+        </classes>
+    </test>
+    <test name="Load Delays Page Test">
+        <classes>
+            <class name="com.elinext.testingplaygrounddemo.pages.LoadDelaysPageTest"/>
+        </classes>
+    </test>
+    <test name="Text Input Page Test">
+        <classes>
+            <class name="com.elinext.testingplaygrounddemo.pages.TextInputPage"/>
         </classes>
     </test>
 </suite>

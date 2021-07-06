@@ -1,5 +1,7 @@
-import com.elinext.testingplaygrounddemo.pages.ClickPage;
+package com.elinext.testingplaygrounddemo.pages;
+
 import com.elinext.testingplaygrounddemo.driver.Driver;
+import com.elinext.testingplaygrounddemo.pages.ClickPage;
 import com.elinext.testingplaygrounddemo.pages.HomePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;

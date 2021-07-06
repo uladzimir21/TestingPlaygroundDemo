@@ -18,6 +18,8 @@ public class HomePage {
     private final By clickPageLocator = By.xpath("//div[@class='col-sm']/h3/a[@href='/click']");
     private final By verifyTextPageLocator = By.xpath("//div[@class='col-sm']/h3/a[@href='/verifytext']");
     private final By mouseOverPageLocator = By.xpath("//div[@class='col-sm']/h3/a[@href='/mouseover']");
+    private final By loadDelayPageLocator = By.xpath("//div[@class='col-sm']/h3/a[@href='/loaddelay']");
+    private final By textInputPageLocator = By.xpath("//div[@class='col-sm']/h3/a[@href='/textinput']");
 
     //Method to click login button
     public void clickHiddenLayersPage(WebDriverWait wait) {
@@ -37,6 +39,16 @@ public class HomePage {
 
     public void clickMouseOverPage(WebDriverWait wait) {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(mouseOverPageLocator));
+        element.click();
+    }
+
+    public void clickLoadDelayPage(WebDriverWait wait) {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(loadDelayPageLocator));
+        element.click();
+    }
+
+    public void clickTextInputPage(WebDriverWait wait) {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(textInputPageLocator));
         element.click();
     }
 }

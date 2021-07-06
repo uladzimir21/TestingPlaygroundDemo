@@ -1,31 +1,34 @@
+package com.elinext.testingplaygrounddemo.pages;
+
 import com.elinext.testingplaygrounddemo.driver.Driver;
-import com.elinext.testingplaygrounddemo.pages.HomePage;
-import com.elinext.testingplaygrounddemo.pages.VerifyTextPage;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class VerifyTextPageTest {
+import static org.testng.Assert.assertEquals;
+
+public class TextInputPageTest {
     Driver driver;
     HomePage homePage;
-    VerifyTextPage verifyTextPage;
+    TextInputPage page;
     WebDriverWait wait;
 
     @BeforeClass
     public void setup() {
         driver = Driver.getDriver();
         homePage = new HomePage(driver);
+
         wait = new WebDriverWait(driver, 10);
-        homePage.clickVerifyTextPage(wait);
-        verifyTextPage = new VerifyTextPage(driver);
+        homePage.clickTextInputPage(wait);
+        page = new TextInputPage(driver);
     }
 
     @Test
-    public void testFindTextElement() {
-        verifyTextPage.findTextElement();
-        Assert.assertEquals(verifyTextPage.getTextFromElement(), "Welcome UserName!");
+    public void testPressButton() throws InterruptedException {
+        page.typeTextIn(wait);
+        page.pressButton(wait);
+        assertEquals(page.getButtonName(), page.getInputtedText());
     }
 
     @AfterTest
