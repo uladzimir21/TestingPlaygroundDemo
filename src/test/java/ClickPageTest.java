@@ -1,7 +1,12 @@
+import com.elinext.testingplaygrounddemo.pages.ClickPage;
+import com.elinext.testingplaygrounddemo.driver.Driver;
+import com.elinext.testingplaygrounddemo.pages.HomePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 public class ClickPageTest {
     Driver driver;
@@ -15,11 +20,11 @@ public class ClickPageTest {
         homePage = new HomePage(driver);
         wait = new WebDriverWait(driver, 10);
         homePage.clickClickPage(wait);
+        page = new ClickPage(driver);
     }
 
     @Test(priority = 0)
     public void testButtonColor() {
-        page = new ClickPage(driver);
         WebElement button = page.getButton();
         page.clickButton(wait, button);
 
@@ -28,7 +33,6 @@ public class ClickPageTest {
 
     @Test(priority = 1)
     public void testClickButton() {
-        page = new ClickPage(driver);
         WebElement button = page.getButton();
         page.clickButton(wait, button);
 

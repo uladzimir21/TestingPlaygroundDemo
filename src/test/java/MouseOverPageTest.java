@@ -1,7 +1,8 @@
-import org.openqa.selenium.WebElement;
+import com.elinext.testingplaygrounddemo.driver.Driver;
+import com.elinext.testingplaygrounddemo.pages.HomePage;
+import com.elinext.testingplaygrounddemo.pages.MouseOverPage;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -19,11 +20,11 @@ public class MouseOverPageTest {
 
         wait = new WebDriverWait(driver, 10);
         homePage.clickMouseOverPage(wait);
+        mouseOverPage = new MouseOverPage(driver);
     }
 
     @Test
     public void testGetClickTimes() {
-        mouseOverPage = new MouseOverPage(driver);
         int expected = 2;
         Assert.assertEquals(mouseOverPage.getClickTimes(), expected);
     }

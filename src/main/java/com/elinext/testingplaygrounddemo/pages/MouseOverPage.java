@@ -1,3 +1,6 @@
+package com.elinext.testingplaygrounddemo.pages;
+
+import com.elinext.testingplaygrounddemo.driver.Driver;
 import org.openqa.selenium.By;
 
 public class MouseOverPage {
