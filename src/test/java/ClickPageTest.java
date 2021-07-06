@@ -1,10 +1,7 @@
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class ClickPageTest {
     Driver driver;
@@ -38,7 +35,7 @@ public class ClickPageTest {
         Assert.assertTrue(page.isClickable(button, driver));
     }
 
-    @AfterClass
+    @AfterTest
     public void destroy() {
         driver.quit();
     }

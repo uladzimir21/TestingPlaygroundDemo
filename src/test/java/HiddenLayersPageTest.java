@@ -1,5 +1,6 @@
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -29,7 +30,7 @@ public class HiddenLayersPageTest {
         assertEquals(page.getButtonColor(), "BLUE");
     }
 
-    @AfterClass
+    @AfterTest
     public void destroy() {
         driver.quit();
     }

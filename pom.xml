@@ -16,6 +16,8 @@
         <aspectj.version>1.8.10</aspectj.version>
         <maven.surefire.plugin>2.22.1</maven.surefire.plugin>
         <allure.testng.version>2.14.0</allure.testng.version>
+        <allure.version>2.13.1</allure.version>
+        <allure.maven.version>2.10.0</allure.maven.version>
     </properties>
 
     <dependencies>
@@ -79,6 +81,18 @@
                         <version>${aspectj.version}</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure.maven.version}</version>
+                <configuration>
+                    <reportVersion>${allure.version}</reportVersion>
+                    <allureDownloadUrl>
+                        https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${allure.version}/allure-commandline-${allure.version}.zip
+                    </allureDownloadUrl>
+                </configuration>
             </plugin>
         </plugins>
     </build>
