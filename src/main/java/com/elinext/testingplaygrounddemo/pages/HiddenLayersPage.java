@@ -1,21 +1,22 @@
 package com.elinext.testingplaygrounddemo.pages;
 
 import com.elinext.testingplaygrounddemo.ILogger;
-import com.elinext.testingplaygrounddemo.driver.Driver;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
 public class HiddenLayersPage implements ILogger {
-    private final Driver driver;
+    private final WebDriver driver;
     private String buttonColor;
 
     private final By colorButtons = By.xpath("//div[@id='spa']/div[@class='spa-view']");
     private final By greenButton = By.xpath("//div[@id='spa']/div[@class='spa-view']/button[@id='greenButton']");
     private final By blueButton = By.xpath("//div[@id='spa']/div[@class='spa-view']/button[@id='blueButton']");
 
-    public HiddenLayersPage(Driver driver) {
+    public HiddenLayersPage(WebDriver driver) {
         this.driver = driver;
         if (!driver.getTitle().equals("Hidden Layers")) {
             throw new IllegalStateException("This is not Hidden Layers page." +
@@ -23,6 +24,7 @@ public class HiddenLayersPage implements ILogger {
         }
     }
 
+    @Step("Performing two clicks: one for the green button, another for the blue one")
     public void clickButton() {
         if (buttonSum() == 1) {
             driver.findElement(greenButton).click();

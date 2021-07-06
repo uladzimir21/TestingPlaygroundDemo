@@ -1,7 +1,7 @@
 package com.elinext.testingplaygrounddemo.pages;
 
 import com.elinext.testingplaygrounddemo.ILogger;
-import com.elinext.testingplaygrounddemo.driver.Driver;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,11 +9,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ClickPage implements ILogger {
-    private final Driver driver;
+    private final WebDriver driver;
 
     private final By buttonLocator = By.id("badButton");
 
-    public ClickPage(Driver driver) {
+    public ClickPage(WebDriver driver) {
         this.driver = driver;
         if (!driver.getTitle().equals("Click")) {
             throw new IllegalStateException("This is not Click page." +
@@ -25,6 +25,7 @@ public class ClickPage implements ILogger {
         return driver.findElement(buttonLocator);
     }
 
+    @Step("Click the button")
     public void clickButton(WebDriverWait wait, WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         element.click();

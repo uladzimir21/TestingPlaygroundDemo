@@ -1,16 +1,17 @@
 package com.elinext.testingplaygrounddemo.pages;
 
-import com.elinext.testingplaygrounddemo.driver.Driver;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class VerifyTextPage {
-    protected Driver driver;
+    protected WebDriver driver;
     private WebElement element;
 
     private final By textElementLocator = By.xpath("//div[@class='container']/div[@class='bg-primary']/span[text()[normalize-space()]]");
 
-    public VerifyTextPage(Driver driver) {
+    public VerifyTextPage(WebDriver driver) {
         this.driver = driver;
         if (!driver.getTitle().equals("Verify Text")) {
             throw new IllegalStateException("This is not Verify Text." +
@@ -23,10 +24,10 @@ public class VerifyTextPage {
     }
 
     public void findTextElement() {
-        WebElement webElement = driver.findElement(textElementLocator);
-        element = webElement;
+        element = driver.findElement(textElementLocator);
     }
 
+    @Step("Extract the text value for check correctness")
     public String getTextFromElement() {
         return element.getAttribute("innerText");
     }

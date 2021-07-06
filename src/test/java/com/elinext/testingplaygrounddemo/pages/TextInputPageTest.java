@@ -1,6 +1,7 @@
 package com.elinext.testingplaygrounddemo.pages;
 
 import com.elinext.testingplaygrounddemo.driver.Driver;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -9,7 +10,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 public class TextInputPageTest {
-    Driver driver;
+    WebDriver driver;
     HomePage homePage;
     TextInputPage page;
     WebDriverWait wait;
@@ -25,7 +26,7 @@ public class TextInputPageTest {
     }
 
     @Test
-    public void testPressButton() throws InterruptedException {
+    public void testPressButton() {
         page.typeTextIn(wait);
         page.pressButton(wait);
         assertEquals(page.getButtonName(), page.getInputtedText());

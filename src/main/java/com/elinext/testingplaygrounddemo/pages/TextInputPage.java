@@ -1,20 +1,21 @@
 package com.elinext.testingplaygrounddemo.pages;
 
-import com.elinext.testingplaygrounddemo.driver.Driver;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TextInputPage {
     public static final String BUTTON_NAME = "New Button!!!";
-    private final Driver driver;
+    private final WebDriver driver;
 
     private final By textInputFieldLocator =
             By.xpath("//input[@id='newButtonName']");
     private final By buttonLocator = By.xpath("//button[@id]");
 
-    public TextInputPage(Driver driver) {
+    public TextInputPage(WebDriver driver) {
         this.driver = driver;
         if (!driver.getTitle().equals("Text Input")) {
             throw new IllegalStateException("This is not Text Input page." +
@@ -22,10 +23,12 @@ public class TextInputPage {
         }
     }
 
-    public void typeTextIn(WebDriverWait wait) throws InterruptedException {
+    @Step("Type in the name of the button")
+    public void typeTextIn(WebDriverWait wait) {
         wait.until(ExpectedConditions.presenceOfElementLocated(textInputFieldLocator)).sendKeys(BUTTON_NAME);
     }
 
+    @Step("Press the button in order to update its name")
     public void pressButton(WebDriverWait wait) {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(buttonLocator));
         element.click();

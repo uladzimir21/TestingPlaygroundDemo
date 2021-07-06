@@ -1,8 +1,7 @@
 package com.elinext.testingplaygrounddemo.pages;
 
 import com.elinext.testingplaygrounddemo.driver.Driver;
-import com.elinext.testingplaygrounddemo.pages.HomePage;
-import com.elinext.testingplaygrounddemo.pages.LoadDelaysPage;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -11,7 +10,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertTrue;
 
 public class LoadDelaysPageTest {
-    Driver driver;
+    WebDriver driver;
     HomePage homePage;
     LoadDelaysPage page;
     WebDriverWait wait;

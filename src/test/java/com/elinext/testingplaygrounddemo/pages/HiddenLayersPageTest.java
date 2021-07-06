@@ -1,8 +1,7 @@
 package com.elinext.testingplaygrounddemo.pages;
 
 import com.elinext.testingplaygrounddemo.driver.Driver;
-import com.elinext.testingplaygrounddemo.pages.HiddenLayersPage;
-import com.elinext.testingplaygrounddemo.pages.HomePage;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -11,7 +10,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 public class HiddenLayersPageTest {
-    Driver driver;
+    WebDriver driver;
     HomePage homePage;
     HiddenLayersPage page;
     WebDriverWait wait;

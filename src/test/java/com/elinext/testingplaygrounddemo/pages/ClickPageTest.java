@@ -1,9 +1,8 @@
 package com.elinext.testingplaygrounddemo.pages;
 
 import com.elinext.testingplaygrounddemo.driver.Driver;
-import com.elinext.testingplaygrounddemo.pages.ClickPage;
-import com.elinext.testingplaygrounddemo.pages.HomePage;
 import io.qameta.allure.Description;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -12,7 +11,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class ClickPageTest {
-    Driver driver;
+    WebDriver driver;
     HomePage homePage;
     ClickPage page;
     WebDriverWait wait;
@@ -27,7 +26,7 @@ public class ClickPageTest {
     }
 
     @Test(priority = 0)
-    @Description("Check class identity if the button color have changed.")
+    @Description("Check class identity if the button color has changed.")
     public void testButtonColor() {
         WebElement button = page.getButton();
         page.clickButton(wait, button);
@@ -36,7 +35,7 @@ public class ClickPageTest {
     }
 
     @Test(priority = 1)
-    @Description("Check class identity if the button color have changed.")
+    @Description("Check if the button is clickable after color has changed.")
     public void testClickButton() {
         WebElement button = page.getButton();
         page.clickButton(wait, button);

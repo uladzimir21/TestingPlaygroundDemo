@@ -1,16 +1,17 @@
 package com.elinext.testingplaygrounddemo.pages;
 
-import com.elinext.testingplaygrounddemo.driver.Driver;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoadDelaysPage {
-    private final Driver driver;
+    private final WebDriver driver;
 
     private final By buttonLocator = By.xpath("//div[@class='container']/button");
 
-    public LoadDelaysPage(Driver driver) {
+    public LoadDelaysPage(WebDriver driver) {
         this.driver = driver;
         if (!driver.getTitle().equals("Load Delays")) {
             throw new IllegalStateException("This is not Load Delays page." +
@@ -18,6 +19,7 @@ public class LoadDelaysPage {
         }
     }
 
+    @Step("Waiting for page is completely downloaded, then click the button")
     public void clickButton(WebDriverWait wait) {
         if (isPageCompletelyLoaded(wait))
             wait.until(ExpectedConditions.elementToBeClickable(buttonLocator)).click();

@@ -1,8 +1,7 @@
 package com.elinext.testingplaygrounddemo.pages;
 
 import com.elinext.testingplaygrounddemo.driver.Driver;
-import com.elinext.testingplaygrounddemo.pages.HomePage;
-import com.elinext.testingplaygrounddemo.pages.MouseOverPage;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -10,7 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class MouseOverPageTest {
-    Driver driver;
+    WebDriver driver;
     HomePage homePage;
     MouseOverPage mouseOverPage;
     WebDriverWait wait;
