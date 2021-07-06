@@ -19,6 +19,7 @@ public class HomePage implements ILogger {
     private final By mouseOverPageLocator = By.xpath("//div[@class='col-sm']/h3/a[@href='/mouseover']");
     private final By loadDelayPageLocator = By.xpath("//div[@class='col-sm']/h3/a[@href='/loaddelay']");
     private final By textInputPageLocator = By.xpath("//div[@class='col-sm']/h3/a[@href='/textinput']");
+    private final By progressBarPageLocator = By.xpath("//div[@class='col-sm']/h3/a[@href='/progressbar']");
 
     //Method to click login button
     public void clickHiddenLayersPage(WebDriverWait wait) {
@@ -54,6 +55,12 @@ public class HomePage implements ILogger {
     public void clickTextInputPage(WebDriverWait wait) {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(textInputPageLocator));
         log().info("Navigating to Text Input Page by {} locator", textInputPageLocator);
+        element.click();
+    }
+
+    public void clickProgressBarPage(WebDriverWait wait) {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(progressBarPageLocator));
+        log().info("Navigating to Text Input Page by {} locator", progressBarPageLocator);
         element.click();
     }
 }

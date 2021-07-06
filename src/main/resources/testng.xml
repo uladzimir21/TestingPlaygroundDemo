@@ -28,7 +28,12 @@
     </test>
     <test name="Text Input Page Test">
         <classes>
-            <class name="com.elinext.testingplaygrounddemo.pages.TextInputPage"/>
+            <class name="com.elinext.testingplaygrounddemo.pages.TextInputPageTest"/>
+        </classes>
+    </test>
+    <test name="Text Input Page Test">
+        <classes>
+            <class name="com.elinext.testingplaygrounddemo.pages.ProgressBarPageTest"/>
         </classes>
     </test>
 </suite>

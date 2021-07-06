@@ -24,7 +24,7 @@ public class MouseOverPage {
      * it's a very important to perform all of the clicks before and extract
      * the amount of clicks after that.
      *
-      * @return the amount of link clicks
+     * @return the amount of link clicks
      */
 
     @Description(useJavaDoc = true)
