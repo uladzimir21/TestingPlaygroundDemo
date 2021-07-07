@@ -2,34 +2,39 @@ package com.elinext.testingplaygrounddemo.pages;
 
 import com.elinext.testingplaygrounddemo.HomePage;
 import com.elinext.testingplaygrounddemo.driver.Driver;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
-
-public class ProgressBarPageTest {
+public class NonBreakingSpacePageTest {
     WebDriver driver;
     HomePage homePage;
-    ProgressBarPage page;
+    NonBreakingSpacePage page;
     WebDriverWait wait;
 
     @BeforeClass
     public void setup() {
         driver = Driver.getDriver();
         homePage = new HomePage(driver);
+
         wait = new WebDriverWait(driver, 10);
-        homePage.clickProgressBarPage(wait);
-        page = new ProgressBarPage(driver);
+        homePage.clickNonBreakingSpacePage(wait);
+        page = new NonBreakingSpacePage(driver);
     }
 
     @Test
-    public void testGetProgressValueAfterStopClicked() {
-        page.clickStartButton();
-        page.clickStopButton();
-        assertEquals(page.getProgressValueAfterStopClicked(), page.getUntilValue());
+    public void testClickButton() {
+        page.clickButton();
+        Assert.assertEquals(page.getClassOfButton(), "btn btn-primary");
+    }
+
+    @Test(expectedExceptions = {NoSuchElementException.class})
+    public void testClickNoSuchButton() {
+        page.clickNoSuchButton();
     }
 
     @AfterTest

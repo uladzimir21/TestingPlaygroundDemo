@@ -1,6 +1,5 @@
-package com.elinext.testingplaygrounddemo.pages;
+package com.elinext.testingplaygrounddemo;
 
-import com.elinext.testingplaygrounddemo.ILogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,6 +19,7 @@ public class HomePage implements ILogger {
     private final By loadDelayPageLocator = By.xpath("//div[@class='col-sm']/h3/a[@href='/loaddelay']");
     private final By textInputPageLocator = By.xpath("//div[@class='col-sm']/h3/a[@href='/textinput']");
     private final By progressBarPageLocator = By.xpath("//div[@class='col-sm']/h3/a[@href='/progressbar']");
+    private final By nonBreakingSpacePageLocator = By.xpath("//div[@class='col-sm']/h3/a[@href='/nbsp']");
 
     //Method to click login button
     public void clickHiddenLayersPage(WebDriverWait wait) {
@@ -60,7 +60,13 @@ public class HomePage implements ILogger {
 
     public void clickProgressBarPage(WebDriverWait wait) {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(progressBarPageLocator));
-        log().info("Navigating to Text Input Page by {} locator", progressBarPageLocator);
+        log().info("Navigating to Progress Bar Page by {} locator", progressBarPageLocator);
+        element.click();
+    }
+
+    public void clickNonBreakingSpacePage(WebDriverWait wait) {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(nonBreakingSpacePageLocator));
+        log().info("Navigating to Non Breaking Space Page by {} locator", nonBreakingSpacePageLocator);
         element.click();
     }
 }

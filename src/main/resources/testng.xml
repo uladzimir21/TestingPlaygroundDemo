@@ -31,9 +31,14 @@
             <class name="com.elinext.testingplaygrounddemo.pages.TextInputPageTest"/>
         </classes>
     </test>
-    <test name="Text Input Page Test">
+    <test name="Progress Bar Page Test">
         <classes>
             <class name="com.elinext.testingplaygrounddemo.pages.ProgressBarPageTest"/>
+        </classes>
+    </test>
+    <test name="Non-Breaking Space Page Test">
+        <classes>
+            <class name="com.elinext.testingplaygrounddemo.pages.NonBreakingSpacePageTest"/>
         </classes>
     </test>
 </suite>
