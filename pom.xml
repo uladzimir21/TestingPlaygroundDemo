@@ -20,6 +20,7 @@
         <allure.maven.version>2.10.0</allure.maven.version>
         <log4j.api.version>2.14.1</log4j.api.version>
         <log4j.core.version>2.14.1</log4j.core.version>
+        <webdrivermanager.version>4.4.3</webdrivermanager.version>
     </properties>
 
     <dependencies>
@@ -62,6 +63,19 @@
             <version>${log4j.core.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>4.4.3</version>
+            <scope>compile</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -95,8 +109,6 @@
                     <allureDownloadUrl>
                         https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${allure.version}/allure-commandline-${allure.version}.zip
                     </allureDownloadUrl>
-
-
                 </configuration>
             </plugin>
         </plugins>
