@@ -13,10 +13,6 @@ public class NonBreakingSpacePage {
 
     public NonBreakingSpacePage(WebDriver driver) {
         this.driver = driver;
-        if (!driver.getTitle().equals("Non-Breaking Space")) {
-            throw new IllegalStateException("This is not Non-Breaking Space page." +
-                    " You're now on: " + driver.getCurrentUrl());
-        }
     }
 
     @Step("Click the blue button")

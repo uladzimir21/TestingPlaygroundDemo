@@ -13,10 +13,6 @@ public class LoadDelaysPage {
 
     public LoadDelaysPage(WebDriver driver) {
         this.driver = driver;
-        if (!driver.getTitle().equals("Load Delays")) {
-            throw new IllegalStateException("This is not Load Delays page." +
-                    " You're now on: " + driver.getCurrentUrl());
-        }
     }
 
     @Step("Waiting for page is completely downloaded, then click the button")

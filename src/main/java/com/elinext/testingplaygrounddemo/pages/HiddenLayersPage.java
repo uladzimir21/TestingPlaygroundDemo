@@ -18,10 +18,6 @@ public class HiddenLayersPage implements ILogger {
 
     public HiddenLayersPage(WebDriver driver) {
         this.driver = driver;
-        if (!driver.getTitle().equals("Hidden Layers")) {
-            throw new IllegalStateException("This is not Hidden Layers page." +
-                    " You're now on: " + driver.getCurrentUrl());
-        }
     }
 
     @Step("Performing two clicks: one for the green button, another for the blue one")

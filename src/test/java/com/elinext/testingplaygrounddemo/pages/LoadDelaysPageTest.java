@@ -1,39 +1,32 @@
 package com.elinext.testingplaygrounddemo.pages;
 
 import com.elinext.testingplaygrounddemo.HomePage;
-import com.elinext.testingplaygrounddemo.driver.Driver;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;
 
-public class LoadDelaysPageTest {
-    WebDriver driver;
-    HomePage homePage;
+public class LoadDelaysPageTest extends BaseTest {
     LoadDelaysPage page;
-    WebDriverWait wait;
 
     @BeforeClass
-    public void setup() {
-        driver = Driver.getDriver();
-        homePage = new HomePage(driver);
-
-        wait = new WebDriverWait(driver, 10);
-        homePage.clickLoadDelayPage(wait);
+    private void startClass() {
         page = new LoadDelaysPage(driver);
+
+        log().info("Tests in class LoadDelaysPageTest started");
+    }
+
+    @AfterClass
+    private void finishClass() {
+        homePage.navigateToHome();
+        log().info("Tests in class LoadDelaysPageTest finished");
     }
 
     @Test
     public void testClickButton() {
+        homePage.navigateToPage(HomePage.PageLink.LOAD_DELAY_PAGE.getXPath());
         page.clickButton(wait);
         assertTrue(page.isPageCompletelyLoaded(wait));
-    }
-
-    @AfterTest
-    public void destroy() {
-        driver.quit();
     }
 }

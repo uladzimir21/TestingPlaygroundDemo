@@ -13,10 +13,6 @@ public class VerifyTextPage {
 
     public VerifyTextPage(WebDriver driver) {
         this.driver = driver;
-        if (!driver.getTitle().equals("Verify Text")) {
-            throw new IllegalStateException("This is not Verify Text." +
-                    " You're now on: " + driver.getCurrentUrl());
-        }
     }
 
     private WebElement getButton(By locator) {

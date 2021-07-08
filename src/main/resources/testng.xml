@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
+<suite name="Playground Suite">
     <test name="Hidden Layers Page Test">
         <classes>
             <class name="com.elinext.testingplaygrounddemo.pages.HiddenLayersPageTest"/>
@@ -39,6 +39,11 @@
     <test name="Non-Breaking Space Page Test">
         <classes>
             <class name="com.elinext.testingplaygrounddemo.pages.NonBreakingSpacePageTest"/>
+        </classes>
+    </test>
+    <test name="Dynamic ID Page Test">
+        <classes>
+            <class name="com.elinext.testingplaygrounddemo.pages.DynamicIDPageTest"/>
         </classes>
     </test>
 </suite>

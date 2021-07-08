@@ -18,10 +18,6 @@ public class ProgressBarPage implements ILogger {
 
     public ProgressBarPage(WebDriver driver) {
         this.driver = driver;
-        if (!driver.getTitle().equals("Progress Bar")) {
-            throw new IllegalStateException("This is not Progress Bar page." +
-                    " You're now on: " + driver.getCurrentUrl());
-        }
     }
 
     @Step("Click start button to make progressbar run")

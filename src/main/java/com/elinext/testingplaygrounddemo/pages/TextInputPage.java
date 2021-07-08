@@ -17,10 +17,6 @@ public class TextInputPage {
 
     public TextInputPage(WebDriver driver) {
         this.driver = driver;
-        if (!driver.getTitle().equals("Text Input")) {
-            throw new IllegalStateException("This is not Text Input page." +
-                    " You're now on: " + driver.getCurrentUrl());
-        }
     }
 
     @Step("Type in the name of the button")

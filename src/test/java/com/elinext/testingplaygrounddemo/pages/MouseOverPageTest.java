@@ -1,38 +1,31 @@
 package com.elinext.testingplaygrounddemo.pages;
 
 import com.elinext.testingplaygrounddemo.HomePage;
-import com.elinext.testingplaygrounddemo.driver.Driver;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class MouseOverPageTest {
-    WebDriver driver;
-    HomePage homePage;
-    MouseOverPage mouseOverPage;
-    WebDriverWait wait;
+public class MouseOverPageTest extends BaseTest {
+    MouseOverPage page;
 
     @BeforeClass
-    public void setup() {
-        driver = Driver.getDriver();
-        homePage = new HomePage(driver);
+    private void startClass() {
+        page = new MouseOverPage(driver);
 
-        wait = new WebDriverWait(driver, 10);
-        homePage.clickMouseOverPage(wait);
-        mouseOverPage = new MouseOverPage(driver);
+        log().info("Tests in class MouseOverPageTest started");
+    }
+
+    @AfterClass
+    private void finishClass() {
+        homePage.navigateToHome();
+        log().info("Tests in class MouseOverPageTest finished");
     }
 
     @Test
     public void testGetClickTimes() {
+        homePage.navigateToPage(HomePage.PageLink.MOUSE_OVER_PAGE.getXPath());
         int expected = 2;
-        Assert.assertEquals(mouseOverPage.getClickTimes(), expected);
-    }
-
-    @AfterTest
-    public void destroy() {
-        driver.quit();
+        Assert.assertEquals(page.getClickTimes(), expected);
     }
 }

@@ -13,10 +13,6 @@ public class MouseOverPage {
 
     public MouseOverPage(WebDriver driver) {
         this.driver = driver;
-        if (!driver.getTitle().equals("Mouse Over")) {
-            throw new IllegalStateException("This is not Mouse Over page." +
-                    " You're now on: " + driver.getCurrentUrl());
-        }
     }
 
     /**

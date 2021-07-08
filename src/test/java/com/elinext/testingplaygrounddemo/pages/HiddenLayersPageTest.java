@@ -1,33 +1,31 @@
 package com.elinext.testingplaygrounddemo.pages;
 
 import com.elinext.testingplaygrounddemo.HomePage;
-import com.elinext.testingplaygrounddemo.driver.Driver;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class HiddenLayersPageTest {
-    WebDriver driver;
-    HomePage homePage;
+public class HiddenLayersPageTest extends BaseTest {
     HiddenLayersPage page;
-    WebDriverWait wait;
 
     @BeforeClass
-    public void setup() {
-        driver = Driver.getDriver();
-        homePage = new HomePage(driver);
-
-        wait = new WebDriverWait(driver, 10);
-        homePage.clickHiddenLayersPage(wait);
+    private void startClass() {
         page = new HiddenLayersPage(driver);
+
+        log().info("Tests in class HiddenLayersPageTest started");
+    }
+
+    @AfterClass
+    private void finishClass() {
+        homePage.navigateToHome();
+        log().info("Tests in class HiddenLayersPageTest finished");
     }
 
     @Test(priority = 0)
     public void clickGreenBtn() {
+        homePage.navigateToPage(HomePage.PageLink.HIDDEN_LAYERS_PAGE.getXPath());
         page.clickButton();
         assertEquals(page.getButtonColor(), "GREEN");
     }
@@ -36,10 +34,5 @@ public class HiddenLayersPageTest {
     public void clickBlueBtn() {
         page.clickButton();
         assertEquals(page.getButtonColor(), "BLUE");
-    }
-
-    @AfterTest
-    public void destroy() {
-        driver.quit();
     }
 }

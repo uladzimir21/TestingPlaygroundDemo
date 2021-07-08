@@ -15,10 +15,6 @@ public class ClickPage implements ILogger {
 
     public ClickPage(WebDriver driver) {
         this.driver = driver;
-        if (!driver.getTitle().equals("Click")) {
-            throw new IllegalStateException("This is not Click page." +
-                    " You're now on: " + driver.getCurrentUrl());
-        }
     }
 
     public WebElement getButton() {
