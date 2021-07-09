@@ -1,5 +1,6 @@
 package com.elinext.testingplaygrounddemo.utils;
 
+import com.elinext.testingplaygrounddemo.ILogger;
 import com.elinext.testingplaygrounddemo.driver.Driver;
 import io.qameta.allure.Attachment;
 import org.apache.commons.io.FileUtils;
@@ -8,40 +9,27 @@ import org.openqa.selenium.TakesScreenshot;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
-public class ScreenShotter {
-    private static final String screenshotsPath = new File("screenshots").getAbsolutePath();
-    private File scrFile;
+public class ScreenShotter implements ILogger {
+    private static final String SCREENSHOTS_PATH = new File("src/main/resources/screenshots").getAbsolutePath();
+    private final String currentTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("uuuu-MMM-dd HH-mm-ss"));
 
     public ScreenShotter() {
     }
 
     public void saveScreenShotWithStatus(String status) {
-        File destFile = getScreenShotsPath(status);
+        File scrFile = takeScreenShotForFile();
+        String screenShotName = status + "_" + currentTime + ".png";
+        File destFile = new File(SCREENSHOTS_PATH + File.separator + screenShotName);
+
         try {
             FileUtils.copyFile(scrFile, destFile);
+            log().info("ScreenShot saved into {}", destFile);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-    }
-
-    private File getScreenShotsPath(String status) {
-        return new File(screenshotsPath + File.separator + getScreenArtifactPath(status));
-    }
-
-    private String getScreenArtifactPath(String status) {
-        return createDir() + File.separator + status + ".png";
-    }
-
-    protected String createDir() {
-        String PATH = "src/main/resources";
-        String directoryName = PATH.concat(this.getClass().getSimpleName());
-
-        File directory = new File(directoryName);
-        directory.mkdir();
-
-        System.out.println("Created directory for screenshots : " + directoryName);
-        return directory.getAbsolutePath();
     }
 
     public File takeScreenShotForFile() {
@@ -51,9 +39,5 @@ public class ScreenShotter {
     @Attachment(type = "image/png")
     public byte[] takeScreenShotForAttachment() {
         return ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-    }
-
-    public void setScrFile(File scrFile) {
-        this.scrFile = scrFile;
     }
 }

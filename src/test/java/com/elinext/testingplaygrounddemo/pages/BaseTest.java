@@ -4,7 +4,6 @@ import com.elinext.testingplaygrounddemo.HomePage;
 import com.elinext.testingplaygrounddemo.ILogger;
 import com.elinext.testingplaygrounddemo.driver.Driver;
 import com.elinext.testingplaygrounddemo.utils.ScreenShotListener;
-import com.elinext.testingplaygrounddemo.utils.ScreenShotter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
@@ -17,27 +16,16 @@ public abstract class BaseTest implements ILogger {
     static WebDriver driver;
     static WebDriverWait wait;
 
-    private ScreenShotter screenShotter;
-
     @BeforeSuite
     public void setup() {
-        try {
-            driver = Driver.getDriver();
-            wait = new WebDriverWait(driver, 10);
-            homePage = new HomePage(driver, wait);
-            driver.get("http://uitestingplayground.com");
-            screenShotter = new ScreenShotter();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        driver = Driver.getDriver();
+        wait = new WebDriverWait(driver, 10);
+        homePage = new HomePage(driver, wait);
+        driver.get("http://uitestingplayground.com");
     }
 
     @AfterSuite
     public void shutDown() {
-        try {
-            screenShotter.setScrFile(screenShotter.takeScreenShotForFile());
-        } finally {
-            driver.quit();
-        }
+        driver.quit();
     }
 }

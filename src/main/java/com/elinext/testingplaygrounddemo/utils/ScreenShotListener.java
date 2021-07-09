@@ -8,14 +8,14 @@ public class ScreenShotListener extends ScreenShotter implements ITestListener, 
     @Override
     public void onTestFailure(ITestResult result) {
         takeScreenShotForAttachment();
-        takeScreenShotForFile();
-        //saveScreenShotWithStatus("FAILURE");
-        log().info("------- End of Test {}", result.getMethod().getDescription());
+        saveScreenShotWithStatus("FAILED");
+        log().info("------- Test failed -------");
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
         takeScreenShotForAttachment();
-        log().info("------- Test {}  skipped -------", result.getMethod().getDescription());
+        saveScreenShotWithStatus("SKIPPED");
+        log().info("------- Test skipped -------");
     }
 }

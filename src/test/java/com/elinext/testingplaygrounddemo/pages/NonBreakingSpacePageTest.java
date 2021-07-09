@@ -23,7 +23,7 @@ public class NonBreakingSpacePageTest extends BaseTest {
         log().info("Tests in class NonBreakingSpacePageTest finished");
     }
 
-    @Test()
+    @Test
     public void testClickButton() {
         homePage.navigateToPage(HomePage.PageLink.NON_BREAKING_SPACE_PAGE.getXPath());
         page.clickButton();
