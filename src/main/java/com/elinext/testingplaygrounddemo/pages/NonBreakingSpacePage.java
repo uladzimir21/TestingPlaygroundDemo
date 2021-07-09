@@ -17,7 +17,11 @@ public class NonBreakingSpacePage {
 
     @Step("Click the blue button")
     public void clickButton() {
-        getButton().click();
+        try {
+            getButton().click();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Step("Click to nowhere")
