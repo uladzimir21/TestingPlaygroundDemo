@@ -1,6 +1,7 @@
 package com.elinext.testingplaygrounddemo.pages;
 
 import com.elinext.testingplaygrounddemo.HomePage;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -25,6 +26,7 @@ public class DynamicIDPageTest extends BaseTest {
     public void testClickButton() {
         homePage.navigateToPage(HomePage.PageLink.DYNAMIC_ID_PAGE.getXPath());
         page.clickButton();
+        Assert.assertEquals(page.getButtonName(), "Button with Dynamic ID");
     }
 
 }

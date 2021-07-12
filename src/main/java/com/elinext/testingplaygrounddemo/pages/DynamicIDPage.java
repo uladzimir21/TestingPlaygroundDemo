@@ -2,6 +2,7 @@ package com.elinext.testingplaygrounddemo.pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -21,5 +22,11 @@ public class DynamicIDPage {
 
     private WebElement getButton() {
         return driver.findElement(button);
+    }
+
+    public String getButtonName() {
+        WebElement button = getButton();
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        return executor.executeScript("return arguments[0].innerText;", button).toString();
     }
 }
