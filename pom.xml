@@ -14,7 +14,7 @@
         <testng.version>7.4.0</testng.version>
         <selenium-java.version>3.141.59</selenium-java.version>
         <aspectj.version>1.8.10</aspectj.version>
-        <maven.surefire.plugin>2.19.1</maven.surefire.plugin>
+        <maven.surefire.plugin>2.22.1</maven.surefire.plugin>
         <allure.testng.version>2.14.0</allure.testng.version>
         <allure.version>2.13.1</allure.version>
         <allure.maven.version>2.10.0</allure.maven.version>
